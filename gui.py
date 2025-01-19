@@ -138,7 +138,7 @@ def on_key_press(event):
         shift_pressed = True
     if event.keysym.lower() == "alt_l":
         alt_pressed = True
-    if event.keysym.lower() == "meta_l":
+    if event.keysym.lower() == "win_l":
         win_pressed = True
 
     # Собираем список нажатых клавиш
@@ -153,7 +153,7 @@ def on_key_press(event):
         keys.append("win")
 
     # Добавляем основную клавишу (если это не модификатор)
-    if event.keysym.lower() not in ["control_l", "shift_l", "alt_l", "meta_l"]:
+    if event.keysym.lower() not in ["control_l", "shift_l", "alt_l", "win_l"]:
         keys.append(event.keysym.lower())
 
     # Обновляем поле ввода
@@ -171,7 +171,7 @@ def on_key_release(event):
         shift_pressed = False
     if event.keysym.lower() == "alt_l":
         alt_pressed = False
-    if event.keysym.lower() == "meta_l":
+    if event.keysym.lower() == "win_l":
         win_pressed = False
 
 # Создаем главное окно

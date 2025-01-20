@@ -403,28 +403,28 @@ if __name__ == "__main__":
     )
     add_button.pack(pady=10)
 
-    # Кнопка для выбора устройств
-    select_devices_button = ttk.Button(
-        root,
-        text="Выбрать устройства",
-        command=select_devices,
-        style="Rounded.TButton"
-    )
-    select_devices_button.pack(pady=10)
+    # # Кнопка для выбора устройств
+    # select_devices_button = ttk.Button(
+    #     root,
+    #     text="Выбрать устройства",
+    #     command=select_devices,
+    #     style="Rounded.TButton"
+    # )
+    # select_devices_button.pack(pady=10)
 
-    # Добавляем ползунки и кнопки для управления звуком
-    volume_frame = tk.Frame(root, bg="#424242")
-    volume_frame.pack(pady=10)
+    # # Добавляем ползунки и кнопки для управления звуком
+    # volume_frame = tk.Frame(root, bg="#424242")
+    # volume_frame.pack(pady=10)
 
-    # Ползунок для громкости динамиков
-    tk.Label(volume_frame, text="Громкость динамиков:", font=("Arial", 12), bg="#424242", fg="#e0e0e0").pack()
-    volume_slider = ttk.Scale(volume_frame, from_=0, to=100, orient=tk.HORIZONTAL, command=lambda v: set_volume(float(v)))
-    volume_slider.set(50)  # Устанавливаем начальное значение громкости
-    volume_slider.pack(pady=5)
+    # # Ползунок для громкости динамиков
+    # tk.Label(volume_frame, text="Громкость динамиков:", font=("Arial", 12), bg="#424242", fg="#e0e0e0").pack()
+    # volume_slider = ttk.Scale(volume_frame, from_=0, to=100, orient=tk.HORIZONTAL, command=lambda v: set_volume(float(v)))
+    # volume_slider.set(50)  # Устанавливаем начальное значение громкости
+    # volume_slider.pack(pady=5)
 
-    # Кнопки Mute и Solo
-    mute_button = ttk.Button(volume_frame, text="Mute", command=toggle_mute, style="Rounded.TButton")
-    mute_button.pack(side=tk.LEFT, padx=5)
+    # # Кнопки Mute 
+    # mute_button = ttk.Button(volume_frame, text="Mute", command=toggle_mute, style="Rounded.TButton")
+    # mute_button.pack(side=tk.LEFT, padx=5)
 
     # Область с прокруткой для списка сочетаний
     scroll_frame = tk.Frame(root, bg="#424242")

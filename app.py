@@ -3,7 +3,7 @@ import pyautogui
 import json
 import logging
 import comtypes
-from gui import set_volume, toggle_mute, get_audio_interface, set_device_volume, get_device_volume
+from gui import set_volume, toggle_mute, get_audio_interface, set_device_volume, get_device_volume, is_muted
 
 # Инициализация COM-объектов
 
@@ -68,12 +68,20 @@ def set_volume_endpoint():
 # Включение/выключение звука
 @app.route('/toggle_mute', methods=['POST'])
 def toggle_mute_endpoint():
-    toggle_mute()
-    return jsonify({'success': True, 'message': 'Mute toggled'})
-
+    toggle_mute()  # Переключаем состояние звука
+    is_muted_state = is_muted()  # Получаем текущее состояние
+    return jsonify({'success': True, 'muted': is_muted_state})
+@app.route('/is_muted', methods=['GET'])
+def is_muted_endpoint():
+    try:
+        is_muted_state = is_muted()
+        return jsonify({'success': True, 'muted': is_muted_state})
+    except Exception as e:
+        return jsonify({'success': False, 'message': f'Error: {str(e)}'}), 400
 # Получение текущей громкости
 @app.route('/get_volume', methods=['GET'])
 def get_volume_endpoint():
+    comtypes.CoInitialize()
     try:
         audio_interface = get_audio_interface()
         volume = audio_interface.GetMasterVolumeLevelScalar() * 100

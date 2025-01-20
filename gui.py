@@ -14,6 +14,12 @@ alt_pressed = False
 win_pressed = False
 
 comtypes.CoInitialize()  # Инициализация COM-объектов
+
+def is_muted():
+    comtypes.CoInitialize()
+    audio_interface = get_audio_interface()
+    return audio_interface.GetMute()
+
 def set_device_volume(device_id, volume):
     devices = AudioUtilities.GetAllDevices()
     for device in devices:

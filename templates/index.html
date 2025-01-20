@@ -13,7 +13,8 @@
             font-family: Arial, Helvetica, sans-serif;
             background: #1c1c1d;
             color: #fff;
-            transition: all 1s;
+            transition: all 0.1s;
+            margin-bottom: 150px;
         }
         .hidden{
             display: none;
@@ -177,7 +178,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         #muteButton {
-            width: 65px;
+            
             display: inline-block;
             margin-left: auto;
             margin-right: auto;
@@ -234,6 +235,47 @@
         <h2>Микшер</h2>
         <div id="devicesContainer"></div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const muteButton = document.getElementById('muteButton');
+    
+            // Функция для обновления текста кнопки
+            function updateMuteButton(isMuted) {
+                muteButton.textContent = isMuted ? 'Unmute' : 'Mute';
+            }
+    
+            // Запрос текущего состояния Mute при загрузке страницы
+            fetch('/is_muted')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        updateMuteButton(data.muted);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching mute state:', error);
+                });
+    
+            // Обработка нажатия кнопки Mute
+            muteButton.addEventListener('click', function () {
+                fetch('/toggle_mute', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        updateMuteButton(data.muted);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error toggling mute:', error);
+                });
+            });
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const devicesContainer = document.getElementById('devicesContainer');
@@ -391,14 +433,7 @@
                     body: `volume=${encodeURIComponent(volume)}`
                 });
             });
-            muteButton.addEventListener('click', function () {
-            fetch('/toggle_mute', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                }
-            });
-        });
+            
         });
     </script>
 </body>

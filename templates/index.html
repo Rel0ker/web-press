@@ -15,6 +15,9 @@
             color: #fff;
             transition: all 1s;
         }
+        .hidden{
+            display: none;
+        }
         .button {
             width: 170px;
             display: inline-block;
@@ -27,37 +30,35 @@
             color: white;
             border: none;
             border-radius: 10px;
-            
         }
         .separator {
-        height: 10px;
-
-    }
-    .green {
-        background: rgb(9,121,73);
-        background: linear-gradient(90deg, rgba(9,121,73,1) 0%, rgb(5, 190, 107) 100%);
-        border: none;
-    }
-    .blue {
-        background: rgb(9,79,121);
-        background: linear-gradient(90deg, rgba(9,79,121,1) 0%, rgba(7,32,170,1) 100%);
-        border: none;
-    }
-    .cyan {
-        background: rgb(9,81,121);
-        background: linear-gradient(90deg, rgba(9,81,121,1) 0%, rgb(5, 72, 143) 100%);
-        border: none;
-    }
-    .purple {
-        background: rgb(63,9,121);
-        background: linear-gradient(90deg, rgba(63,9,121,1) 0%, rgb(100, 3, 124) 100%);
-        border: none;
-    }
-    .yellow {
-        background: rgb(137, 148, 15);
-        background: linear-gradient(90deg, rgb(129, 139, 10) 0%, rgba(109,170,7,1) 100%);
-        border: none;
-    }
+            height: 10px;
+        }
+        .green {
+            background: rgb(9,121,73);
+            background: linear-gradient(90deg, rgba(9,121,73,1) 0%, rgb(5, 190, 107) 100%);
+            border: none;
+        }
+        .blue {
+            background: rgb(9,79,121);
+            background: linear-gradient(90deg, rgba(9,79,121,1) 0%, rgba(7,32,170,1) 100%);
+            border: none;
+        }
+        .cyan {
+            background: rgb(9,81,121);
+            background: linear-gradient(90deg, rgba(9,81,121,1) 0%, rgb(5, 72, 143) 100%);
+            border: none;
+        }
+        .purple {
+            background: rgb(63,9,121);
+            background: linear-gradient(90deg, rgba(63,9,121,1) 0%, rgb(100, 3, 124) 100%);
+            border: none;
+        }
+        .yellow {
+            background: rgb(137, 148, 15);
+            background: linear-gradient(90deg, rgb(129, 139, 10) 0%, rgba(109,170,7,1) 100%);
+            border: none;
+        }
         .button:hover {
             background: #256097;
             border: none;
@@ -67,9 +68,8 @@
             margin-left: 20px;
             margin-right: 20px;
             padding: 10px;
-           
         }
-        .heh{
+        .heh {
             position: fixed;
             top: 70px;
             width: 100%;
@@ -82,17 +82,15 @@
             background-color: #203b26;
             color: #6afc8c;
             border: 2px solid #065318;
-
         }
         .error {
             background-color: #66595a;
             color: #721c24;
             border: 2px solid #4b0e14;
-
         }
-        h1{
+        h1 {
             background: rgb(9,81,121);
-background: linear-gradient(90deg, rgba(9,81,121,1) 0%, rgba(9,64,121,1) 100%);
+            background: linear-gradient(90deg, rgba(9,81,121,1) 0%, rgba(9,64,121,1) 100%);
             margin-top: 0;
             margin-left: 5px;
             margin-right: 5px;
@@ -101,16 +99,113 @@ background: linear-gradient(90deg, rgba(9,81,121,1) 0%, rgba(9,64,121,1) 100%);
             border-bottom-right-radius: 15px;
             color: #fff;
         }
-        #buttonsContainer{
-            
+        #buttonsContainer {
             margin-top: 45px;
-
             border-radius: 10px;
-            margin-left: auto ;
+            margin-left: auto;
             margin-right: auto;
             max-width: 750px;
             padding-top: 10px;
             padding-bottom: 10px;
+        }
+
+        /* Стили для вертикального ползунка */
+        .volume-slider-container {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            
+
+        }
+        .volume-slider {
+            margin-top: 40px;
+            margin-bottom: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            -webkit-appearance: none; /* Убираем стандартный стиль */
+            appearance: none;
+            width: 150px; /* Ширина ползунка */
+            height: 65px; /* Высота ползунка */
+            background: #444;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+            transform: rotate(-90deg); /* Поворачиваем ползунок на 90 градусов */
+            transition: background 0.3s ease;
+        }
+        .volume-slider::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 65px;
+            background: linear-gradient(to right, #007aff, #034b97 var(--volume, 50%), #444 var(--volume, 50%), #444 100%);
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none; /* Скрываем стандартный ползунок */
+            appearance: none;
+            width: 0px; /* Размер ползунка */
+            height: 0px; /* Размер ползунка */
+            background: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .volume-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .volume-slider::-moz-range-track {
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #007aff, #007aff var(--volume, 50%), #444 var(--volume, 50%), #444 100%);
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .volume-slider::-moz-range-thumb {
+            width: 20px; /* Размер ползунка */
+            height: 20px; /* Размер ползунка */
+            background: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .volume-slider::-moz-range-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        #muteButton {
+            width: 65px;
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            background: rgb(99, 24, 24);
+            background: linear-gradient(90deg, rgb(99, 24, 24) 0%, rgb(139, 35, 35) 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+        @media (max-width: 768px) {
+            .volume-slider {
+                transform: rotate(0deg); /* Возвращаем ползунок в горизонтальное положение */
+                width: 350px; /* Ширина ползунка на мобильных устройствах */
+                height: 0; /* Увеличиваем высоту для удобства */
+            }
+            .volume-slider::-webkit-slider-thumb {
+                width: 10px; /* Увеличиваем размер ползунка */
+                height: 65px; /* Увеличиваем размер ползунка */
+                border-radius: 5px;
+            }
+            .volume-slider::-moz-range-thumb {
+                width: 10px; /* Увеличиваем размер ползунка */
+                height: 65px; /* Увеличиваем размер ползунка */
+                border-radius: 5px;
+            }
         }
     </style>
 </head>
@@ -127,28 +222,127 @@ background: linear-gradient(90deg, rgba(9,81,121,1) 0%, rgba(9,64,121,1) 100%);
             </div>
         {% endfor %}
     </div>
-    
 
+    <!-- Вертикальный ползунок громкости -->
+    <div class="volume-slider-container">
+        <h3>Общая громкость</h3>
+        <input type="range" class="volume-slider" min="0" max="100"  id="volumeSlider">
+        <button id="muteButton">Mute</button>
+    </div>
+    
+    <div class="device-list hidden" id="deviceList">
+        <h2>Микшер</h2>
+        <div id="devicesContainer"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const devicesContainer = document.getElementById('devicesContainer');
+    
+            // Загрузка выбранных устройств
+            function loadSelectedDevices() {
+                fetch('/get_selected_devices')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            renderDevices(data.devices);
+                        } else {
+                            console.error('Failed to load selected devices:', data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error loading selected devices:', error);
+                    });
+            }
+    
+            // Отображение выбранных устройств
+            function renderDevices(devices) {
+                devicesContainer.innerHTML = '';
+                devices.forEach(device => {
+                    const deviceItem = document.createElement('div');
+                    deviceItem.className = 'device-item';
+    
+                    const deviceInfo = document.createElement('div');
+                    deviceInfo.innerHTML = `
+                        <div class="device-name">${device.name}</div>
+                        <div class="device-type">${device.type}</div>
+                    `;
+    
+                    const deviceControls = document.createElement('div');
+                    deviceControls.className = 'device-controls';
+    
+                    const volumeSlider = document.createElement('input');
+                    volumeSlider.type = 'range';
+                    volumeSlider.className = 'volume-slider';
+                    volumeSlider.min = 0;
+                    volumeSlider.max = 100;
+                    volumeSlider.value = 50;
+    
+                    // Загрузка текущей громкости устройства
+                    fetch(`/get_device_volume?device_id=${device.id}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                volumeSlider.value = data.volume;
+                            }
+                        });
+    
+                    // Обработка изменения громкости
+                    volumeSlider.addEventListener('input', function () {
+                        const volume = this.value;
+                        fetch('/set_device_volume', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: `device_id=${encodeURIComponent(device.id)}&volume=${encodeURIComponent(volume)}`
+                        });
+                    });
+    
+                    deviceControls.appendChild(volumeSlider);
+                    deviceItem.appendChild(deviceInfo);
+                    deviceItem.appendChild(deviceControls);
+                    devicesContainer.appendChild(deviceItem);
+                });
+            }
+    
+            // Загрузка выбранных устройств при старте
+            loadSelectedDevices();
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const buttons = document.querySelectorAll('.button');
             const messageDiv = document.getElementById('message');
+            const volumeSlider = document.getElementById('volumeSlider');
 
+            // Запрос текущей громкости при загрузке страницы
+            fetch('/get_volume')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const volume = data.volume;
+                        volumeSlider.value = volume; // Устанавливаем значение ползунка
+                        volumeSlider.style.setProperty('--volume', `${volume}%`); // Обновляем выделение
+                    } else {
+                        console.error('Failed to get current volume:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching current volume:', error);
+                });
+
+            // Обработка нажатия кнопок
             buttons.forEach(button => {
                 button.addEventListener('click', function () {
-                    // Получаем значение атрибута data-key
                     const keyCombination = this.getAttribute('data-key');
 
-                    // Проверяем, что значение получено
                     if (!keyCombination) {
                         console.error('No key combination found in data-key attribute.');
                         return;
                     }
 
-                    // Логируем значение
                     console.log('Sending key combination:', keyCombination);
 
-                    // Отправка AJAX-запроса
                     fetch('/press', {
                         method: 'POST',
                         headers: {
@@ -158,7 +352,6 @@ background: linear-gradient(90deg, rgba(9,81,121,1) 0%, rgba(9,64,121,1) 100%);
                     })
                     .then(response => response.json())
                     .then(data => {
-                        // Показ сообщения
                         if (data.success) {
                             messageDiv.textContent = data.message;
                             messageDiv.className = 'success';
@@ -168,7 +361,6 @@ background: linear-gradient(90deg, rgba(9,81,121,1) 0%, rgba(9,64,121,1) 100%);
                         }
                         messageDiv.style.display = 'block';
 
-                        // Скрыть сообщение через 2 секунды
                         setTimeout(() => {
                             messageDiv.style.display = 'none';
                         }, 2000);
@@ -179,13 +371,34 @@ background: linear-gradient(90deg, rgba(9,81,121,1) 0%, rgba(9,64,121,1) 100%);
                         messageDiv.className = 'error';
                         messageDiv.style.display = 'block';
 
-                        // Скрыть сообщение через 2 секунды
                         setTimeout(() => {
                             messageDiv.style.display = 'none';
                         }, 2000);
                     });
                 });
             });
+
+            // Обработка изменения громкости
+            volumeSlider.addEventListener('input', function () {
+                const volume = this.value;
+                this.style.setProperty('--volume', `${volume}%`); // Обновляем выделение
+
+                fetch('/set_volume', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `volume=${encodeURIComponent(volume)}`
+                });
+            });
+            muteButton.addEventListener('click', function () {
+            fetch('/toggle_mute', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                }
+            });
+        });
         });
     </script>
 </body>
